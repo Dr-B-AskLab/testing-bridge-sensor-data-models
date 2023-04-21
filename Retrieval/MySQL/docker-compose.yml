@@ -1,0 +1,18 @@
+version: '3'
+services:
+  app:
+    build: .
+    volumes:
+      - .:/app
+    command: python process_csv.py
+    depends_on:
+      - db
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: mydatabase
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: mypassword
+    volumes:
+      - ./db_data:/var/lib/mysql

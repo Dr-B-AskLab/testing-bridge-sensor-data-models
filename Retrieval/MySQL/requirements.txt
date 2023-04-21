@@ -1,0 +1,6 @@
+pandas
+elasticsearch
+pymongo
+mysql-connector-python
+numpy
+psycopg2-binary
