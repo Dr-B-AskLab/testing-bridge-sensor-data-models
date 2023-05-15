@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  mongo:
+    image: mongo
+    volumes:
+      - ./data:/data/db
+
+
+  app:
+    build: .
+    volumes:
+      - .:/app
+    command: python process_csv.py
+    depends_on:
+      - mongo
